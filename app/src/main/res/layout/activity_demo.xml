@@ -15,4 +15,13 @@
         tools:layout_editor_absoluteX="45dp"
         tools:layout_editor_absoluteY="16dp" />
 
+      <Button
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:id="@+id/btnDemoGallery"
+          android:text="Launch Gallery"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:layout_editor_absoluteX="45dp"
+          tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>

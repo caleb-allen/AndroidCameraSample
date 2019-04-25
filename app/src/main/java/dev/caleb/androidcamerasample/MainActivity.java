@@ -24,11 +24,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button captureImageExternal = findViewById(R.id.btnCaptureImageExternal);
-        captureImageExternal.setOnClickListener(new View.OnClickListener() {
+//        Button captureImageExternal = findViewById(R.id.btnCaptureImageExternal);
+//        captureImageExternal.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                takePictureExternal();
+//            }
+//        });
+
+        Button launchDemo = findViewById(R.id.btnDemo);
+        launchDemo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                takePictureExternal();
+                Intent i = new Intent(MainActivity.this, DemoActivity.class);
+                startActivity(i);
             }
         });
 
@@ -67,10 +76,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveImage(Bitmap bitmap) throws IOException {
 
-        // Create an image file name
+        // Get a timestamp for the image
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        // Create an image file name
         String imageFileName = "JPEG_" + timeStamp + "_.jpg";
+
+        // Internal private directory
         File storageDir = getFilesDir();
+
+        // Create a placeholder file
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
